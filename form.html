@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Fashion Hub</title>
+  <style>
+    body {background: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; 
+      min-height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Segoe UI', sans-serif;}
+    .form-box {
+      background: rgba(255,255,255,0.9); padding: 2rem; border-radius: 12px; width: 350px; text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    h2 {margin-bottom: 1rem;}
+    input {width: 100%; padding: 0.7rem; margin: 0.6rem 0; border: 1px solid #ccc; border-radius: 8px;}
+    button {
+      background: #111; color: white; padding: 0.7rem 1.5rem; border: none; border-radius: 20px;
+      cursor: pointer; margin-top: 1rem;
+    }
+    button:hover {background: #e63946;}
+    .product {margin: 1rem 0; font-weight: bold;}
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Customer Details</h2>
+    <div class="product" id="product"></div>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <button onclick="proceed()">Proceed to Payment</button>
+  </div>
+
+  <script>
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+    if(product) {
+      document.getElementById("product").innerText = `${product.name} - ${product.price}`;
+    }
+    function proceed() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      if(name && email) {
+        localStorage.setItem("customerDetails", JSON.stringify({name,email}));
+        window.location.href = "payment.html";
+      } else {
+        alert("Please fill all details.");
+      }
+    }
+  </script>
+</body>
+</html>

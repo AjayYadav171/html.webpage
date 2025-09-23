@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fashion Hub - Clothing Store</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;}
+    body {background: #f7f7f7; color: #333;}
+    header {
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      height: 70vh; display: flex; justify-content: center; align-items: center; flex-direction: column;
+      text-align: center; color: white; padding: 2rem;
+    }
+    header h1 {font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px #000;}
+    header p {font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 1px 1px 5px #000;}
+    .products {padding: 4rem 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 2rem;}
+    .card {
+      background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s; text-align: center; padding-bottom: 1rem;
+    }
+    .card:hover {transform: translateY(-5px);}
+    .card img {width: 100%; height: 250px; object-fit: cover;}
+    .card h3 {margin: 1rem 0 0.5rem;}
+    .card p {font-size: 0.9rem; padding: 0 1rem; color: #555;}
+    .price {font-weight: bold; margin: 0.5rem 0;}
+    button {
+      background: #111; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 20px;
+      cursor: pointer; transition: background 0.3s;
+    }
+    button:hover {background: #e63946;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fashion Hub</h1>
+    <p>Style that speaks for you 👗👕</p>
+  </header>
+
+  <section class="products">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=T-Shirt" alt="T-Shirt">
+      <h3>Classic T-Shirt</h3>
+      <p>Comfortable cotton T-shirt perfect for daily wear.</p>
+      <div class="price">₹499</div>
+      <button onclick="buyProduct('Classic T-Shirt', '₹499')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=Jeans" alt="Jeans">
+      <h3>Denim Jeans</h3>
+      <p>Stylish slim-fit jeans for all occasions.</p>
+      <div class="price">₹999</div>
+      <button onclick="buyProduct('Denim Jeans', '₹999')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=Dress" alt="Dress">
+      <h3>Summer Dress</h3>
+      <p>Lightweight floral dress for a casual outing.</p>
+      <div class="price">₹799</div>
+      <button onclick="buyProduct('Summer Dress', '₹799')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=Jacket" alt="Jacket">
+      <h3>Leather Jacket</h3>
+      <p>Trendy black leather jacket with premium finish.</p>
+      <div class="price">₹2499</div>
+      <button onclick="buyProduct('Leather Jacket', '₹2499')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=Shirt" alt="Shirt">
+      <h3>Formal Shirt</h3>
+      <p>Crisp cotton shirt for business meetings.</p>
+      <div class="price">₹699</div>
+      <button onclick="buyProduct('Formal Shirt', '₹699')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x250?text=Hoodie" alt="Hoodie">
+      <h3>Casual Hoodie</h3>
+      <p>Soft hoodie with a relaxed fit for chilly evenings.</p>
+      <div class="price">₹1299</div>
+      <button onclick="buyProduct('Casual Hoodie', '₹1299')">Buy Now</button>
+    </div>
+  </section>
+
+  <script>
+    function buyProduct(name, price) {
+      localStorage.setItem("selectedProduct", JSON.stringify({name, price}));
+      window.location.href = "form.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment - Fashion Hub</title>
+  <style>
+    body {background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Segoe UI', sans-serif;}
+    .payment-box {
+      background: rgba(255,255,255,0.9); padding: 2rem; border-radius: 12px; width: 350px; text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    h2 {margin-bottom: 1rem;}
+    input {width: 100%; padding: 0.7rem; margin: 0.6rem 0; border: 1px solid #ccc; border-radius: 8px;}
+    button {
+      background: #111; color: white; padding: 0.7rem 1.5rem; border: none; border-radius: 20px;
+      cursor: pointer; margin-top: 1rem;
+    }
+    button:hover {background: #e63946;}
+  </style>
+</head>
+<body>
+  <div class="payment-box">
+    <h2>Payment Details</h2>
+    <input type="text" placeholder="Card Number" maxlength="16" required>
+    <input type="text" placeholder="Expiry Date (MM/YY)" required>
+    <input type="password" placeholder="CVV" maxlength="3" required>
+    <button onclick="pay()">Proceed to Pay</button>
+  </div>
+
+  <script>
+    function pay() {
+      window.location.href = "thankyou.html";
+    }
+  </script>
+</body>
+</html>
